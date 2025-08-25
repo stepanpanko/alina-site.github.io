@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alina Blyzniuk — Portrait & Lifestyle Photography</title>
+  <meta name="description" content="Minimal portfolio with pricing, FAQ and contact. White theme.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="menu" id="primary-menu">
+      <a href="/">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero container">
+  <div>
+    <span class="badge">Portrait & Lifestyle Photography</span>
+    <h1>Honest, cinematic portraits without the awkward.</h1>
+    <p>Based in Athens, Greece · Available worldwide · Turnaround in 7–10 days · RAW files are not provided.</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn" href="#pricing">See pricing</a>
+      <a class="btn" href="gallery.html">View gallery</a>
+      <a class="btn" href="#contact">Book a date</a>
+    </div>
+    <p><small style="color:#7b7b85">Studio rental, makeup & travel are billed separately if needed.</small></p>
+  </div>
+  <figure class="card"><img src="assets/images/AlinaHero.JPEG" alt="Sample portrait" loading="eager"></figure>
+</header>
+
+<section id="pricing" class="section container pricing">
+  <h2>Pricing</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="price">Portrait — €150</div>
+      <p>Up to 1 hour · 1 location · 10 edited photos.</p>
+      <ul class="clean"><li>Each extra photo: €10</li><li>Additional hour: €80</li><li>Studio rental (optional): at cost</li></ul>
+    </div>
+    <div class="card">
+      <div class="price">Couple — €240</div>
+      <p>90 minutes · 1–2 locations · 18 edited photos.</p>
+      <ul class="clean"><li>Each extra photo: €10</li><li>Rush delivery (48h): +€60</li></ul>
+    </div>
+    <div class="card">
+      <div class="price">Editorial / Commercial — from €450</div>
+      <p>Half-day (4h) with moodboard support, light retouch, basic licensing.</p>
+      <ul class="clean"><li>Full-day (8h): €800</li><li>Advanced retouch: +€12/photo</li></ul>
+    </div>
+    <div class="card">
+      <strong>Rules & Info</strong>
+      <ul class="clean">
+        <li>Booking deposit: 30% to secure your date.</li>
+        <li>Turnaround: 7–10 days. RAW files are not provided.</li>
+        <li>Travel outside City: +€0.40/km or actual transport cost.</li>
+        <li>Makeup / studio: billed separately where applicable.</li>
+        <li>Reschedule once for free (48h notice).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section container about">
+  <h2>About</h2>
+  <div class="grid">
+    <div class="card">
+      <p>Hi, I’m <strong>Alina Blyzniuk</strong>. I shoot natural, cinematic portraits with a focus on story and mood.</p>
+      <p>Available in Athens, Greece · English/Greek/Ukrainian · Worldwide on request.</p>
+    </div>
+    <div class="card">
+      <strong>Contact</strong>
+      <p>Email: <a href="mailto:alinaa6042@gmail.com">alinaa6042@gmail.com</a><br>
+      Instagram: <a href="https://www.instagram.com/alinablyzniuk.ph/" target="_blank" rel="noreferrer">@alinablyzniuk.ph</a></p>
+      <p><small style="color:#7b7b85">Prefer forms? Use the contact form below ↴</small></p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section container">
+  <h2>Contact form</h2>
+  <form class="card" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="d3941634-ea85-41c1-a61d-ca7e1eaca1e5">
+    <input class="input" type="text" name="name" placeholder="Your name" required style="margin-bottom:10px">
+    <input class="input" type="email" name="email" placeholder="Email" required style="margin-bottom:10px">
+    <input class="input" type="text" name="subject" placeholder="Subject" style="margin-bottom:10px">
+    <textarea class="input" name="message" placeholder="Tell me about the shoot…" required></textarea>
+    <input type="checkbox" name="botcheck" style="display:none">
+    <input type="hidden" name="redirect" value="thanks.html">
+    <div style="display:flex; gap:10px; margin-top:12px">
+      <button class="btn" type="submit">Send</button>
+      <a class="btn" href="mailto:alinaa6042@gmail.com">Email instead</a>
+    </div>
+    <p><small style="color:#7b7b85">By sending, you agree to be contacted about your inquiry. No spam—ever.</small></p>
+  </form>
+</section>
+
+<script>
+  // Hamburger toggle
+  const burger = document.getElementById('hamburger');
+  const menu   = document.getElementById('primary-menu');
+
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('active', open);
+    burger.setAttribute('aria-expanded', String(open));
+  });
+
+  // Close after clicking a link (mobile)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        burger.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  
+  window.addEventListener("pageshow", function(event) {
+    const form = document.querySelector("form");
+    if (event.persisted || (performance && performance.getEntriesByType("navigation")[0].type === "back_forward")) {
+      form.reset();
+    }
+  });
+</script>
+</body>
+</html>
